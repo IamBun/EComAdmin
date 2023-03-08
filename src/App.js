@@ -25,7 +25,7 @@ const DashboardPage = React.lazy(() => import("./page/DashboardPage"));
 const LivechatPage = React.lazy(() => import("./page/LivechatPage"));
 
 function App() {
-  console.log("process.env.REACT_APP_API_URL", process.env.REACT_APP_API_URL);
+  // console.log("process.env.REACT_APP_API_URL", process.env.REACT_APP_API_URL);
   const dispatch = useDispatch();
   const token = useSelector((state) => state.currentUser.token);
   const getProducts = async function () {

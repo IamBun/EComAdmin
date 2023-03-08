@@ -1,0 +1,47 @@
+.productInfo {
+  display: grid;
+  grid-template-columns: repeat(6, 15%);
+  gap: 20px;
+  margin: 20px 100px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.productInfo img {
+  max-width: 150px;
+}
+
+.productAction {
+  display: flex;
+  gap: 5px;
+}
+
+.productAction button {
+  width: 70px;
+  height: 40px;
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+}
+.productAction button:hover {
+  width: 75px;
+  height: 45px;
+  transition: 0.2s linear;
+}
+.productAction button[id="update"] {
+  background-color: rgb(58, 227, 106);
+  color: #000;
+}
+
+.productAction button[id="delete"] {
+  background-color: rgb(255, 21, 33);
+}
+
+.productAction .none button {
+  width: 5px;
+  height: 5px;
+}

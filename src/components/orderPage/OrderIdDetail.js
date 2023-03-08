@@ -11,7 +11,8 @@ const OrderIdDetail = (props) => {
   const [order, setOrder] = useState();
 
   const fetchOrder = async () => {
-    const res = await fetch(process.env.API_URL+`/shop/order/${params.orderId}`,
+    const res = await fetch(
+      process.env.REACT_APP_API_URL + `/shop/order/${params.orderId}`,
       {
         credentials: "include",
         headers: {

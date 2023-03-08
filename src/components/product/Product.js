@@ -18,12 +18,15 @@ const Product = () => {
 
   const fetchProduct = async () => {
     try {
-      const res = await fetch(process.env.API_URL+`/admin/allProduct`, {
-        credentials: "include",
-        headers: {
-          Authorization: token,
-        },
-      });
+      const res = await fetch(
+        process.env.REACT_APP_API_URL + `/admin/allProduct`,
+        {
+          credentials: "include",
+          headers: {
+            Authorization: token,
+          },
+        }
+      );
       if (!res.ok) {
         throw Error("Loading failed !");
       }

@@ -30,17 +30,20 @@ const Login = () => {
     const enteredEmailInputRef = emailInputRef.current.value; //lay gia tri tu input
     const enteredPasswordInputRef = passwordInputRef.current.value;
     try {
-      const res = await fetch(process.env.API_URL + "/auth/adminlogin", {
-        credentials: "include",
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: enteredEmailInputRef,
-          password: enteredPasswordInputRef,
-        }),
-      });
+      const res = await fetch(
+        process.env.REACT_APP_API_URL + "/auth/adminlogin",
+        {
+          credentials: "include",
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: enteredEmailInputRef,
+            password: enteredPasswordInputRef,
+          }),
+        }
+      );
 
       const data = await res.json();
       // console.log("data", data);

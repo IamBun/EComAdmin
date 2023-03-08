@@ -20,7 +20,7 @@ const EditProduct = () => {
 
   const fetchProductFromBE = async () => {
     const res = await fetch(
-      process.env.API_URL + `/admin/product/${params.productId}`,
+      process.env.REACT_APP_API_URL + `/admin/product/${params.productId}`,
       {
         credentials: "include",
         headers: {
@@ -61,7 +61,7 @@ const EditProduct = () => {
         data.append("images", files[i]);
       }
       const res = await fetch(
-        process.env.API_URL + `/admin/product/${params.productId}`,
+        process.env.REACT_APP_API_URL + `/admin/product/${params.productId}`,
         {
           credentials: "include",
           method: "PUT",

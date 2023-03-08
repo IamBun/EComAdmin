@@ -37,7 +37,7 @@ const DetailProduct = (props) => {
   );
 
   const fetchProduct = () => {
-    fetch(process.env.API_URL + `/shop/product/${params.productId}`)
+    fetch(process.env.REACT_APP_API_URL + `/shop/product/${params.productId}`)
       .then((res) => {
         return res.json();
       })
@@ -72,7 +72,7 @@ const DetailProduct = (props) => {
       return false;
     }
     if (!!userActive) {
-      await fetch(process.env.API_URL + `/shop/cart/${userId}`, {
+      await fetch(process.env.REACT_APP_API_URL + `/shop/cart/${userId}`, {
         method: "POST",
         headers: {
           Authorization: userToken,
@@ -83,11 +83,14 @@ const DetailProduct = (props) => {
           quantity: quantity,
         }),
       });
-      const res = await fetch(process.env.API_URL + `/shop/cart/${userId}`, {
-        headers: {
-          Authorization: userToken,
-        },
-      });
+      const res = await fetch(
+        process.env.REACT_APP_API_URL + `/shop/cart/${userId}`,
+        {
+          headers: {
+            Authorization: userToken,
+          },
+        }
+      );
       const data = await res.json();
       dispatch(
         cartActions.changeProductQuantity({ totalProduct: data.length })

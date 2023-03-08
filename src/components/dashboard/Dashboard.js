@@ -11,12 +11,15 @@ const Dashboard = () => {
 
   const fecthDashboard = async () => {
     try {
-      const res = await fetch(process.env.API_URL + `/admin/dashboard`, {
-        headers: {
-          Authorization: token,
-        },
-        credentials: "include",
-      });
+      const res = await fetch(
+        process.env.REACT_APP_API_URL + `/admin/dashboard`,
+        {
+          headers: {
+            Authorization: token,
+          },
+          credentials: "include",
+        }
+      );
       const data = await res.json();
       if (!res.ok) {
         throw Error("Loading failed !");

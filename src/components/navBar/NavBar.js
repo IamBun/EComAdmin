@@ -27,7 +27,7 @@ const NavBar = () => {
     //khi click nut logout
 
     try {
-      const res = await fetch(process.env.API_URL+"/auth/logout", {
+      const res = await fetch(process.env.REACT_APP_API_URL + "/auth/logout", {
         credentials: "include",
         method: "POST",
         headers: {

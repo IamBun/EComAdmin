@@ -45,14 +45,17 @@ const AddProduct = () => {
         data.append("images", files[i]);
       }
 
-      const res = await fetch(process.env.API_URL + `/admin/addproduct`, {
-        credentials: "include",
-        method: "POST",
-        headers: {
-          Authorization: token,
-        },
-        body: data,
-      });
+      const res = await fetch(
+        process.env.REACT_APP_API_URL + `/admin/addproduct`,
+        {
+          credentials: "include",
+          method: "POST",
+          headers: {
+            Authorization: token,
+          },
+          body: data,
+        }
+      );
       const result = await res.json();
       if (!res.ok) {
         toast.error(`${result.message}`);

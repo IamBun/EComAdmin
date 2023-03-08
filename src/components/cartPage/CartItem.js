@@ -30,22 +30,25 @@ const CartItem = (props) => {
   };
 
   const deleteItemHandler = async (id) => {
-    const res = await fetch(process.env.API_URL+`/shop/cart/${userId}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: token,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        productId: id,
-      }),
-    });
+    const res = await fetch(
+      process.env.REACT_APP_API_URL + `/shop/cart/${userId}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: token,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          productId: id,
+        }),
+      }
+    );
     // this.render();
     dispatch(cartActions.change());
   };
 
   const changeQuantity = async (newQuantity) => {
-    await fetch(process.env.API_URL+`/shop/cart/${userId}`, {
+    await fetch(process.env.REACT_APP_API_URL + `/shop/cart/${userId}`, {
       method: "PUT",
       headers: {
         Authorization: token,

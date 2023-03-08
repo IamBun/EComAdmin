@@ -7,7 +7,7 @@ const ProductInOrder = (props) => {
   const [product, setProduct] = useState();
   const fetchProduct = async () => {
     const res = await fetch(
-      process.env.API_URL + `/shop/product/${props.item.productId}`
+      process.env.REACT_APP_API_URL + `/shop/product/${props.item.productId}`
     );
 
     const data = await res.json();

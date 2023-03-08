@@ -12,7 +12,7 @@ const OrderDetail = () => {
 
   const fetchOrder = async () => {
     try {
-      const res = await fetch(process.env.API_URL + `/shop/order`, {
+      const res = await fetch(process.env.REACT_APP_API_URL + `/shop/order`, {
         credentials: "include",
         headers: {
           Authorization: userToken,

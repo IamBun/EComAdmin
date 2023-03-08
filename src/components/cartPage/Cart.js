@@ -16,17 +16,21 @@ const Cart = () => {
 
   const fetchCartFromBE = async () => {
     try {
-      const res = await fetch(process.env.API_URL + `/shop/cart/${userId}`, {
-        headers: {
-          Authorization: userToken,
-        },
-      });
+      const res = await fetch(
+        process.env.REACT_APP_API_URL + `/shop/cart/${userId}`,
+        {
+          headers: {
+            Authorization: userToken,
+          },
+        }
+      );
       const dataCart = await res.json(); // lay cart tu BE ve, la mang gom ProductId va quantity
       let tempCart = [];
       let tempTotal = 0;
       for (let i = 0; i < dataCart.length; i++) {
         const cartAndQuantity = await fetch(
-          process.env.API_URL + `/shop/product/${dataCart[i].productId}`
+          process.env.REACT_APP_API_URL +
+            `/shop/product/${dataCart[i].productId}`
         );
         const cartAndQuantityJson = await cartAndQuantity.json();
         tempCart.push({

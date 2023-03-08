@@ -30,17 +30,20 @@ const Register = () => {
     const enteredPasswordInputRef = passwordInputRef.current.value;
     const enteredPhoneInputRef = phoneInputRef.current.value;
     try {
-      const res = await fetch(process.env.API_URL + "/auth/register/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: enteredEmailInputRef,
-          password: enteredPasswordInputRef,
-          name: enteredFullnameInputRef,
-        }),
-      });
+      const res = await fetch(
+        process.env.REACT_APP_API_URL + "/auth/register/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: enteredEmailInputRef,
+            password: enteredPasswordInputRef,
+            name: enteredFullnameInputRef,
+          }),
+        }
+      );
       const data = await res.json();
       // const userId = data.userId;
       if (!res.ok) {

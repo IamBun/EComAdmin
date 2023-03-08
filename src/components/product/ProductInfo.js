@@ -12,13 +12,16 @@ const ProductInfo = (props) => {
   const token = useSelector((state) => state.currentUser.token);
   const deleteProductHandler = async (id) => {
     try {
-      const res = await fetch(process.env.API_URL+`/admin/product/${id}`, {
-        credentials: "include",
-        method: "DELETE",
-        headers: {
-          Authorization: token,
-        },
-      });
+      const res = await fetch(
+        process.env.REACT_APP_API_URL + `/admin/product/${id}`,
+        {
+          credentials: "include",
+          method: "DELETE",
+          headers: {
+            Authorization: token,
+          },
+        }
+      );
       const result = await res.json();
       if (!res.ok) {
         toast.error(`${result.message}`);

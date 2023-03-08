@@ -25,12 +25,13 @@ const DashboardPage = React.lazy(() => import("./page/DashboardPage"));
 const LivechatPage = React.lazy(() => import("./page/LivechatPage"));
 
 function App() {
+  console.log("process.env.REACT_APP_API_URL", process.env.REACT_APP_API_URL);
   const dispatch = useDispatch();
   const token = useSelector((state) => state.currentUser.token);
   const getProducts = async function () {
     try {
       const res = await fetch(
-        process.env.API_URL +
+        process.env.REACT_APP_API_URL +
           // "https://firebasestorage.googleapis.com/v0/b/funix-subtitle.appspot.com/o/Boutique_products.json?alt=media&token=dc67a5ea-e3e0-479e-9eaf-5e01bcd09c74"
           "/shop/allProduct",
         {

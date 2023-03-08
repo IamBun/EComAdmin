@@ -12,7 +12,9 @@ const Popup = (props) => {
   // const index = useSelector((state) => state.popup.index); //lay ra id cua san pham
   const [products, setProducts] = useState();
   const fetchProduct = async () => {
-    const data = await fetch(process.env.API_URL+`/shop/product/${props.prodId}`);
+    const data = await fetch(
+      process.env.REACT_APP_API_URL + `/shop/product/${props.prodId}`
+    );
     const res = await data.json();
     setProducts(res.product);
   };

@@ -43,10 +43,14 @@ const Product = () => {
   }, [data, productChange]); //lan dau tai trang thi lay data luu vao store redux, khi data thay doi thi tai lai
 
   const searchCategoryHandler = () => {
-    const enteredInputRef = categoriesInputRef.current.value.toLowerCase(); //lay gia tri tu input, khong viet hoa
+    const enteredInputRef = categoriesInputRef.current.value
+      .toLowerCase()
+      .trim(); //lay gia tri tu input, khong viet hoa
     let categoryArr = data.filter(
       //tao mang moi lay tu mang data sao cho category trung voi category nhap tu input
-      (ele) => ele.name.match(enteredInputRef)
+      // (ele) => ele.name.match(enteredInputRef)
+      (ele) =>
+        ele.category === enteredInputRef || ele.name.match(enteredInputRef)
     );
 
     dispatch(categoriesActions.getCategories(categoryArr)); //goi len store luu mang category de hien thi
@@ -65,7 +69,7 @@ const Product = () => {
         <div className={classes.searchDetail}>
           <div>
             <input
-              placeholder="Enter Search Here ! "
+              placeholder="Enter Search Category Here ! "
               ref={categoriesInputRef}
             ></input>
             <button onClick={searchCategoryHandler}>Search</button>

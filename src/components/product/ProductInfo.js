@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import classes from "./productInfo.module.css";
 import { toast, ToastContainer } from "react-toastify";
-import { useState } from "react";
+import { editPrice } from "../../store/function";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { productActions } from "../../store/product";
@@ -38,8 +38,11 @@ const ProductInfo = (props) => {
       <div className={classes.productInfo}>
         <h5>{props.item._id}</h5>
         <h4>{props.item.name}</h4>
-        <h4>{props.item.price}</h4>
-        <img src={props.item.image[0]} alt={props.item.name}></img>
+        <h4>{editPrice(props.item.price)}</h4>
+        <img
+          src={process.env.REACT_APP_API_URL + "/" + props.item.image[0]}
+          alt={props.item.name}
+        ></img>
         <h4>{props.item.category}</h4>
         <div className={classes.productAction}>
           <button

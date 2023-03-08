@@ -12,7 +12,7 @@ const Products = (props) => {
     <>
       <div className={classes.product}>
         <img
-          src={"/" + props.item.image[0]}
+          src={process.env.REACT_APP_API_URL + "/" + props.item.image[0]}
           alt="product-img"
           onClick={clickHandler}
         />

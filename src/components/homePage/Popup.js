@@ -49,7 +49,9 @@ const Popup = (props) => {
     products && (
       <div className={classes.popup}>
         <div className={classes.popupImg}>
-          <img src={products.image[0]}></img>
+          <img
+            src={process.env.REACT_APP_API_URL + "/" + products.image[0]}
+          ></img>
         </div>
         <div className={classes.popupDescription}>
           <h3 onClick={closePopup}>x</h3>

@@ -109,14 +109,29 @@ const DetailProduct = (props) => {
               {/* {product.image.map((ele, index) => {
                 <img src={ele} key={index}></img>;
               })} */}
-              <img src={"/" + product?.image[0]} alt="image0"></img>
-              <img src={"/" + product?.image[1]} alt="image1"></img>
-              <img src={"/" + product?.image[2]} alt="image2"></img>
-              <img src={"/" + product?.image[3]} alt="image3"></img>
+              <img
+                src={process.env.REACT_APP_API_URL + "/" + product?.image[0]}
+                alt="image0"
+              ></img>
+              <img
+                src={process.env.REACT_APP_API_URL + "/" + product?.image[1]}
+                alt="image1"
+              ></img>
+              <img
+                src={process.env.REACT_APP_API_URL + "/" + product?.image[2]}
+                alt="image2"
+              ></img>
+              <img
+                src={process.env.REACT_APP_API_URL + "/" + product?.image[3]}
+                alt="image3"
+              ></img>
             </div>
             {/* anh chinh o giua  */}
             <div className={classes.imgMain}>
-              <img src={"/" + product?.image[0]} alt="image0"></img>
+              <img
+                src={process.env.REACT_APP_API_URL + "/" + product?.image[0]}
+                alt="image0"
+              ></img>
             </div>
 
             {/* thanh phan hien thi mo ta san pham o ben phai */}

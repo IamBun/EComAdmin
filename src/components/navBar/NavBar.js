@@ -166,29 +166,44 @@ const NavBar = () => {
                 Home
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                onClick={hideMenu}
-                to="/shop"
-                className={({ isActive }) =>
-                  isActive ? `${classes.active}` : undefined
-                }
-              >
-                Shop
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                onClick={hideMenu}
-                to="/cart"
-                className={({ isActive }) =>
-                  isActive ? `${classes.active}` : undefined
-                }
-              >
-                Cart
-              </NavLink>
-              {cartTotal > 0 && <span> ( {cartTotal} )</span>}
-            </li>
+            {userToken && (
+              <li>
+                <NavLink
+                  to="/product"
+                  className={({ isActive }) =>
+                    isActive ? `${classes.active}` : undefined
+                  }
+                >
+                  Admin Product
+                </NavLink>
+              </li>
+            )}
+            {userToken && (
+              <li>
+                <NavLink
+                  end
+                  to="/dashboard"
+                  className={({ isActive }) =>
+                    isActive ? `${classes.active}` : undefined
+                  }
+                >
+                  Dashboard
+                </NavLink>
+              </li>
+            )}
+            {userToken && (
+              <li className={classes.cart}>
+                {/* <BiCartAlt /> */}
+                <NavLink
+                  to="/livechat"
+                  className={({ isActive }) =>
+                    isActive ? `${classes.active}` : undefined
+                  }
+                >
+                  Live Chat
+                </NavLink>
+              </li>
+            )}
             {!isUser && (
               <li className={classes.login}>
                 <NavLink

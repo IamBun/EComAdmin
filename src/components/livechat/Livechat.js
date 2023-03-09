@@ -4,7 +4,9 @@ import classes from "./livechat.module.css";
 import openSocket from "socket.io-client";
 import { useSelector } from "react-redux";
 
-const socket = openSocket("/");
+const socket = openSocket("wss://shy-roan-roll.glitch.me", {
+  transports: ["websocket"],
+});
 const Livechat = () => {
   const userId = useSelector((state) => state.currentUser.userId);
 
